@@ -271,10 +271,14 @@ static struct fs_path_config android_files[] = {
 };
 
 static inline void fs_config(const char *path, int dir,
-                             unsigned *uid, unsigned *gid, unsigned *mode)
+                             unsigned *uid, unsigned *gid, unsigned *mode, uint64_t *capabilities)
 {
-    struct fs_path_config *pc;
+    const struct fs_path_config *pc;
     int plen;
+
+    if (path[0] == '/') {
+        path++;
+    }
 
     pc = dir ? android_dirs : android_files;
     plen = strlen(path);
@@ -295,6 +299,7 @@ static inline void fs_config(const char *path, int dir,
     *uid = pc->uid;
     *gid = pc->gid;
     *mode = (*mode & (~07777)) | pc->mode;
+    *capabilities = pc->capabilities;
 
 #if 0
     fprintf(stderr,"< '%s' '%s' %d %d %o >\n",
