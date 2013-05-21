@@ -38,6 +38,7 @@
 #include <cutils/partition_utils.h> // partition_wiped()
 #include <sys/mount.h>// BLKGETSIZE
 #include "make_ext4fs.h" // make_ext4fs
+#include "ext4_utils.h" // fs_info
 /* Avoid redefinition warnings */
 #undef __le32
 #undef __le16
