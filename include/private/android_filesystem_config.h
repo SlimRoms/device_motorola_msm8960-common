@@ -183,6 +183,7 @@ struct fs_path_config {
     unsigned mode;
     unsigned uid;
     unsigned gid;
+    uint64_t capabilities;
     const char *prefix;
 };
 
