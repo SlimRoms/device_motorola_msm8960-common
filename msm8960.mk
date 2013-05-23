@@ -73,6 +73,10 @@ PRODUCT_PACKAGES += \
     Torch \
     libxml2
 
+# Email
+PRODUCT_PACKAGES += \
+    Email
+
 # Lights
 PRODUCT_PACKAGES += lights.msm8960
 
