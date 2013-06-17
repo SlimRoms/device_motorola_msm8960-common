@@ -65,15 +65,10 @@ PRODUCT_PACKAGES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-    WCNSS_qcom_wlan_nv.bin \
-    tcpdump \
-    Torch \
     DevicePerformanceSettingsHelper \
-    libxml2
-
-# Email
-PRODUCT_PACKAGES += \
-    Email
+    libxml2 \
+    tcpdump \
+    Torch
 
 # Lights
 PRODUCT_PACKAGES += lights.msm8960
@@ -99,7 +94,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8960 \
     power.msm8960
 
-#GPS
+# GPS
 PRODUCT_PACKAGES += \
     libloc_adapter \
     libloc_eng \
@@ -119,51 +114,53 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
-#wifi
+# Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/config/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/config/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
-#init
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/root/fstab.qcom:root/fstab.qcom \
-    $(LOCAL_PATH)/root/init.mmi.usb.rc:root/init.mmi.usb.rc \
-    $(LOCAL_PATH)/root/init.mmi.usb.sh:root/init.mmi.usb.sh \
-    $(LOCAL_PATH)/root/init.msm.rc:root/init.msm.rc \
-    $(LOCAL_PATH)/root/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
-    $(LOCAL_PATH)/root/init.qcom.class_main.sh:root/init.qcom.class_main.sh \
-    $(LOCAL_PATH)/root/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh \
-    $(LOCAL_PATH)/root/init.qcom.rc:root/init.qcom.rc \
-    $(LOCAL_PATH)/root/init.qcom.sh:root/init.qcom.sh \
-    $(LOCAL_PATH)/root/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
-    $(LOCAL_PATH)/root/init.target.rc:root/init.target.rc \
-    $(LOCAL_PATH)/root/ueventd.qcom.rc:root/ueventd.qcom.rc
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.mmi.usb.rc \
+    init.msm.rc \
+    init.qcom.rc \
+    init.target.rc \
+    ueventd.qcom.rc
 
-#scripts
+# Init scripts
+PRODUCT_PACKAGES += \
+    init.qcom.class_core.sh \
+    init.qcom.class_main.sh \
+    init.qcom.coex.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.fm.sh \
+    init.qcom.mdm_links.sh \
+    init.qcom.modem_links.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sh \
+    init.qcom.syspart_fixup.sh \
+    init.crda.sh
+
+# Scripts
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/scripts/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    $(LOCAL_PATH)/scripts/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-    $(LOCAL_PATH)/scripts/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
-    $(LOCAL_PATH)/scripts/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-    $(LOCAL_PATH)/scripts/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
-    $(LOCAL_PATH)/scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
-    $(LOCAL_PATH)/scripts/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+    $(LOCAL_PATH)/scripts/mount_pds.sh:system/bin/mount_pds.sh \
     $(LOCAL_PATH)/scripts/qcamerasrvwrapper.sh:system/bin/qcamerasrvwrapper.sh \
     $(LOCAL_PATH)/scripts/sensorsqcomwrapper.sh:system/bin/sensorsqcomwrapper.sh \
-    $(LOCAL_PATH)/scripts/mount_pds.sh:system/bin/mount_pds.sh
 
-#media
+# Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/config/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x
+
+# Media config
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml
 
-#audio
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x
-
-#config
+# Vold configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/vold.fstab:system/etc/vold.fstab
 
@@ -215,7 +212,8 @@ PRODUCT_PACKAGES += \
 
 #wifi
 PRODUCT_PACKAGES += \
-    libnetcmdiface
+    libnetcmdiface \
+    WCNSS_qcom_wlan_nv.bin
 
 # QC Perf
 PRODUCT_PROPERTY_OVERRIDES += \
