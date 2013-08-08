@@ -78,13 +78,19 @@ public class DeviceSettings extends PreferenceActivity implements
         mExternalStoragePref.setChecked(externalStorageVal.equals("1"));
         mExternalStoragePref.setOnPreferenceChangeListener(this);
 
-        // Now disable not available preferences
+        // Now disable unavailable
 
         // Keyboard settings is for Photon Q only
         if (!(SystemProperties.get("ro.product.device","").equals("xt897")) &&
             !(SystemProperties.get("ro.product.device","").equals("xt897c"))) {
             mKeypadMultipressPref.setEnabled(false);
             mKeypadMplangPref.setEnabled(false);
+        }
+
+        if ((SystemProperties.get("ro.product.device","").equals("xt897c")) ||
+            (SystemProperties.get("ro.product.device","").equals("xt907")) ||
+            (SystemProperties.get("ro.product.device","").equals("xt926"))) {
+            mReportGprsAsEdgePref.setEnabled(false);
         }
     }
 
