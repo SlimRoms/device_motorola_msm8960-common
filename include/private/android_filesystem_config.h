@@ -72,8 +72,12 @@
 #define AID_CLAT          1029  /* clat part of nat464 */
 #define AID_LOOP_RADIO    1030  /* loop radio devices */
 #define AID_MEDIA_DRM     1031  /* MediaDrm plugins */
-#define AID_AUDIT         1032  /* audit daemon */
-#define AID_FM_RADIO      1033  /* FM radio */
+#define AID_PACKAGE_INFO  1032  /* access to installed package details */
+#define AID_SDCARD_PICS   1033  /* external storage photos access */
+#define AID_SDCARD_AV     1034  /* external storage audio/video access */
+#define AID_SDCARD_ALL    1035  /* access all users external storage */
+#define AID_AUDIT         1036  /* audit daemon */
+#define AID_FM_RADIO      1037  /* FM radio */
 #define AID_SMARTCARD     1134  /* smart card subsystem */
 
 #define AID_THEMEMAN      1300  /* theme manager */
@@ -196,6 +200,10 @@ static const struct android_id_info android_ids[] = {
     { "nobody",    AID_NOBODY, },
     { "clat",      AID_CLAT, },
     { "mediadrm",  AID_MEDIA_DRM, },
+    { "package_info",  AID_PACKAGE_INFO, },
+    { "sdcard_pics",   AID_SDCARD_PICS, },
+    { "sdcard_av",     AID_SDCARD_AV, },
+    { "sdcard_all",    AID_SDCARD_ALL, },
     { "theme_man", AID_THEMEMAN },
     { "audit",      AID_AUDIT, },
 };

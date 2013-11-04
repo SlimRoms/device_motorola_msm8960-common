@@ -17,6 +17,7 @@ $(call inherit-product, device/motorola/qcom-common/qcom-common.mk)
 
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # HAL
 PRODUCT_PACKAGES += \
